@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Exercicios {
     public static void main(String[] args){
         try {
-            new Exercicios().Questao3_CarregarDadosDoArquivo(3);
+            new Exercicios().Questao4_CarregarDadosDoArquivo(3);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,7 +52,7 @@ public class Exercicios {
     /*
     Carregar um vetor de inteiros (até 100 elementos) com o conteúdo de um arquivo;
      */
-    public void Questao3_CarregarDadosDoArquivo(int qtdMax) throws IOException {
+    public void Questao4_CarregarDadosDoArquivo(int qtdMax) throws IOException {
         File arquivo = new File("arquivoExemplo.txt");
 
         if( arquivo.createNewFile()){
@@ -70,4 +70,5 @@ public class Exercicios {
             System.out.println(dados[i]);
         }
     }
+
 }
