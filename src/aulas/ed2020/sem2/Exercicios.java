@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Exercicios {
     public static void main(String[] args){
         try {
-            new Exercicios().Questao2();
+            new Exercicios().Questao2(QTD_MAX);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -30,8 +30,8 @@ public class Exercicios {
     /*
     Escrever os valores inteiros em um arquivo (os 100 primeiros)
      */
-    public void Questao2() throws IOException {
-        int[] dados = Questao1_LerAteXElementos(QTD_MAX);
+    public void Questao2(int qtdElementos) throws IOException {
+        int[] dados = Questao1_LerAteXElementos(qtdElementos);
         File arquivo = new File("arquivoExemplo.txt");
 
         if( arquivo.createNewFile()){
@@ -39,7 +39,7 @@ public class Exercicios {
         }
         System.out.println("Caminho do arquivo: "+ arquivo.getAbsolutePath());
         FileWriter arquivoWrite = new FileWriter(arquivo);
-        for (int i = 0; i < QTD_MAX; i++) {
+        for (int i = 0; i < qtdElementos; i++) {
             Integer item = dados[i];
             arquivoWrite.write(item.toString() + "\n");
         }
