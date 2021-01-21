@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class Exercicios {
     public static void main(String[] args){
         try {
-            new Exercicios().Questao4_CarregarDadosDoArquivo(3);
-        } catch (IOException e) {
+            new Exercicios().questao3_ListarArquivosDeUmDiretorio("E:\\SincronizadoComGit\\aulas\\ED1\\ED2020_2");
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -31,7 +31,7 @@ public class Exercicios {
     /*
     Escrever os valores inteiros em um arquivo (os 100 primeiros)
      */
-    public void Questao2(int qtdElementos) throws IOException {
+    public void Questao2_EscreverValoresEmArquivo(int qtdElementos) throws IOException {
         int[] dados = Questao1_LerAteXElementos(qtdElementos);
         File arquivo = new File("arquivoExemplo.txt");
 
@@ -68,6 +68,31 @@ public class Exercicios {
     public void mostrarDadosDoArray(int[] dados, int tamanho){
         for(int i=0; i< tamanho; i++){
             System.out.println(dados[i]);
+        }
+    }
+    /*
+    Listar os arquivos de um determinado diretório;
+    */
+    public void questao3_ListarArquivosDeUmDiretorio(String caminhoDiretorio) throws Exception {
+        File elemento = new File(caminhoDiretorio);
+        if (elemento.isDirectory() ) {
+            File[] arquivos = elemento.listFiles();
+            for(int i =0; i < arquivos.length; i ++){
+                if ( arquivos[i].isFile() ) {
+                    // 1. Listar SOMENTE OS arquivos do diretorio informado em "caminhoDiretorio".
+                    System.out.println("Path: " + arquivos[i].getAbsolutePath() );
+                    System.out.println("canExecute: " + arquivos[i].canExecute() );
+                    System.out.println("canWrite: " + arquivos[i].canWrite() );
+                }
+            }
+            for(int i =0; i < arquivos.length; i ++) {
+                if (arquivos[i].isDirectory() ) {
+                    // 2. Para cada "diretorio" encontrado listar o conteúdo deste diretório.
+                    questao3_ListarArquivosDeUmDiretorio(arquivos[i].getAbsolutePath());
+                }
+            }
+        } else {
+            throw new Exception("O caminho informado ["+ elemento.getAbsolutePath() + "] não é de um diretório.");
         }
     }
 
