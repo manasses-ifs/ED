@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Exercicios {
     public static void main(String[] args){
         try {
-            new Exercicios().Questao3();
+            new Exercicios().Questao3_CarregarDadosDoArquivo(3);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,18 +52,18 @@ public class Exercicios {
     /*
     Carregar um vetor de inteiros (até 100 elementos) com o conteúdo de um arquivo;
      */
-    public void Questao3() throws IOException {
+    public void Questao3_CarregarDadosDoArquivo(int qtdMax) throws IOException {
         File arquivo = new File("arquivoExemplo.txt");
 
         if( arquivo.createNewFile()){
             System.out.println("Arquivo criado.");
         }
         Scanner arquivoLer = new Scanner(arquivo);
-        int[] dados = new int[QTD_MAX];
-        for(int i = 0; i< QTD_MAX; i++) {
+        int[] dados = new int[qtdMax];
+        for(int i = 0; i< qtdMax; i++) {
             dados[i] = arquivoLer.nextInt();
         }
-        mostrarDadosDoArray(dados, QTD_MAX);
+        mostrarDadosDoArray(dados, qtdMax);
     }
     public void mostrarDadosDoArray(int[] dados, int tamanho){
         for(int i=0; i< tamanho; i++){
