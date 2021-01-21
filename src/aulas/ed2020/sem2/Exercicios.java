@@ -24,6 +24,7 @@ public class Exercicios {
             int valor = teclado.nextInt();
             dados[i] = valor;
         }
+        mostrarDadosDoArray(dados, qtdMax);
         return dados;
     }
 
@@ -62,10 +63,10 @@ public class Exercicios {
         for(int i = 0; i< QTD_MAX; i++) {
             dados[i] = arquivoLer.nextInt();
         }
-        mostrarDadosDoArray(dados);
+        mostrarDadosDoArray(dados, QTD_MAX);
     }
-    public void mostrarDadosDoArray(int[] dados){
-        for(int i=0; i< QTD_MAX; i++){
+    public void mostrarDadosDoArray(int[] dados, int tamanho){
+        for(int i=0; i< tamanho; i++){
             System.out.println(dados[i]);
         }
     }
