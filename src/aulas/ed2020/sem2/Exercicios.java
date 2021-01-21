@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Exercicios {
     public static void main(String[] args){
         try {
-            new Exercicios().Questao2(QTD_MAX);
+            new Exercicios().Questao3();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,5 +46,27 @@ public class Exercicios {
         arquivoWrite.close();
 
         System.out.println("Procedimento concluído.");
+    }
+
+    /*
+    Carregar um vetor de inteiros (até 100 elementos) com o conteúdo de um arquivo;
+     */
+    public void Questao3() throws IOException {
+        File arquivo = new File("arquivoExemplo.txt");
+
+        if( arquivo.createNewFile()){
+            System.out.println("Arquivo criado.");
+        }
+        Scanner arquivoLer = new Scanner(arquivo);
+        int[] dados = new int[QTD_MAX];
+        for(int i = 0; i< QTD_MAX; i++) {
+            dados[i] = arquivoLer.nextInt();
+        }
+        mostrarDadosDoArray(dados);
+    }
+    public void mostrarDadosDoArray(int[] dados){
+        for(int i=0; i< QTD_MAX; i++){
+            System.out.println(dados[i]);
+        }
     }
 }
