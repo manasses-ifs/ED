@@ -1,6 +1,7 @@
 package aulas.ed2020.sem2;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -8,7 +9,10 @@ import java.util.Scanner;
 public class Exercicios {
     public static void main(String[] args){
         try {
-            new Exercicios().questao3_ListarArquivosDeUmDiretorio("E:\\SincronizadoComGit\\aulas\\ED1\\ED2020_2");
+            //new Exercicios().questao3_ListarArquivosDeUmDiretorio("E:\\SincronizadoComGit\\aulas\\ED1\\ED2020_2");
+            Exercicios e = new Exercicios();
+            e.Questao4_CarregarDadosDoArquivo(3, "arquivo_com_erro_XXX.txt");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,18 +56,19 @@ public class Exercicios {
     /*
     Carregar um vetor de inteiros (até 100 elementos) com o conteúdo de um arquivo;
      */
-    public void Questao4_CarregarDadosDoArquivo(int qtdMax) throws IOException {
-        File arquivo = new File("arquivoExemplo.txt");
+    public void Questao4_CarregarDadosDoArquivo(int qtdMax, String path) throws Exception{
+        File arquivo = new File(path);
+        try {
+            Scanner arquivoLer = new Scanner(arquivo);
 
-        if( arquivo.createNewFile()){
-            System.out.println("Arquivo criado.");
+            int[] dados = new int[qtdMax];
+            for (int i = 0; i < qtdMax; i++) {
+                dados[i] = arquivoLer.nextInt();
+            }
+            mostrarDadosDoArray(dados, qtdMax);
+        } catch (FileNotFoundException e){
+            throw new Exception("O arquivo informado não existe no sistema de arquivos.");
         }
-        Scanner arquivoLer = new Scanner(arquivo);
-        int[] dados = new int[qtdMax];
-        for(int i = 0; i< qtdMax; i++) {
-            dados[i] = arquivoLer.nextInt();
-        }
-        mostrarDadosDoArray(dados, qtdMax);
     }
     public void mostrarDadosDoArray(int[] dados, int tamanho){
         for(int i=0; i< tamanho; i++){
