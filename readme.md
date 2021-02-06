@@ -31,7 +31,10 @@ Fila | 3.5
 ## Dicas
 
 * O repositório pode ter algumas funções de teste, mas não fique limitado! Tente escrever mais funções de teste;
-* Os testes fazem uso da Biblioteca JUnit (versão 4.13.1);
+* Os testes fazem uso das bibliotecas:
+  * JUnit (versão 4.13.1 ou superior);
+  * org.junit.jupiter:junit-jupiter:5.5.2
+  * org.assertj:assertj-core:3.19.0
 * Faça uso do Git para gerenciar os códigos produzidos;
 * Como [fazer um fork](fazerFork.md).
 
