@@ -1,4 +1,4 @@
-package aulas.ed2020.sem2;
+package sem2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
