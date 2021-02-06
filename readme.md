@@ -13,8 +13,8 @@
 |---|:---:|
 **Unidade** | **AV 1**
 [Algoritmos de ordenação](EstudoDirigido/EstudoDirigidoAlgoritmoOrd2020.2.pdf) | 1.0
-Listas | 2.0
-Listas Simplesmente Encadeada | 2.0
+[Listas](EstudoDirigido/EstudoDirigido-03-Lista.pdf) | 3.0
+Listas Simplesmente Encadeada | 3.0
 Listas Duplamente Encadeada | 3.0
 **Unidade** | **AV 2**
 Lista Circular usando Vetor | 1.5
